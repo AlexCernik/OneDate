@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from . import db
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +25,8 @@ SECRET_KEY = '(o4l$%ip572v0-07qgwk7$cb#s+gj3l!(h47=5%(gqi2o@-sk2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DB_LOCAL = False
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,7 +82,16 @@ WSGI_APPLICATION = 'Tools.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = db.POSTGRES_LOCAL
+if not DB_LOCAL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    from . import db
+    DATABASES = db.POSTGRES_LOCAL
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

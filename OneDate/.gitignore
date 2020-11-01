@@ -4,5 +4,6 @@
 *.pot
 *.pyc
 .env
+db.sqlite3
 media/
 db.py
