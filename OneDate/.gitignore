@@ -1,6 +1,8 @@
+#python
 .vscode/
 *.log
 *.pot
 *.pyc
 .env
 media/
+db.py

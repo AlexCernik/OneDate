@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from . import db
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -79,13 +80,7 @@ WSGI_APPLICATION = 'Tools.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
+DATABASES = db.POSTGRES_LOCAL
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -124,16 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
 STATIC_ROOT = 'staticfiles'
-STATIC_ROOT = 'static'
-STATICFILES_DIRS = [
-	os.path.join(BASE_DIR,'static')
-]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR,'static')
+]
 
 # WhiteNoise funciona con cualquier aplicación compatible con WSGI.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
