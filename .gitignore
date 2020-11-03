@@ -7,3 +7,4 @@
 db.sqlite3
 media/
 db.py
+__pycache__

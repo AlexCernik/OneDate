@@ -14,3 +14,8 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tools.settings')
 
 application = get_wsgi_application()
+
+from decouple import config
+if config('DJANGO_PRODUCTION', default=False,cast=bool):
+  from whitenoise.django import DjangoWhiteNoise
+  application = DjangoWhiteNoise(application)
