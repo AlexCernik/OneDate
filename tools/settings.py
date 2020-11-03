@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'tools.wsgi.application'
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url(
+    'default': dj_database_url.config(
         default=config('HEROKU_POSTGRESQL_TEAL_URL')
     )
 }
