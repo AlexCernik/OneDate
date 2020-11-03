@@ -81,15 +81,8 @@ WSGI_APPLICATION = 'tools.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-# from . import db
-# DATABASES = db.POSTGRES_LOCAL
-# Update database configuration with $DATABASE_URL.
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('HEROKU_POSTGRESQL_TEAL_URL')
-    )
-}
+from . import db
+DATABASES = db.POSTGRES_LOCAL
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
