@@ -1,7 +1,7 @@
 from decouple import config
 from . import db
 
-DATABASES = db.POSTGRES_PRODUCTION
+# DATABASES = db.POSTGRES_PRODUCTION
 
 # Dropbox for image
 DEFAULT_FILE_STORAGE = 'django_dropbox_storage.storage.DropboxStorage'
