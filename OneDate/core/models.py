@@ -1,27 +1,153 @@
 from django.db import models
+from model_utils.models import TimeStampedModel, SoftDeletableModel
 
 # Create your models here.
 
-class Fruit(models.Model):
-    fruit_name = models.CharField(verbose_name='Nombre de fruta',max_length=50)
-    fruit_type = models.CharField(verbose_name='Tipo de fruta',max_length=50)
-    created_on = models.DateTimeField(auto_now_add=True)
-    update_on = models.DateTimeField(auto_now=True)
+class Character(TimeStampedModel, SoftDeletableModel):
+    TYPE = [
+        ('Paramecia', 'Paramecia'),
+        ('Zoan', 'Zoan'),
+        ('Logia', 'Logia'),
+        ('Unknown','Unknown'),
+    ]
+    SEX = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Unknown','Unknown'),
+    ]
+    RAZA = [
+        ('Human', 'Human'),
+        ('Reindeer', 'Reindeer'),
+        ('Gyoji', 'Gyoji'),
+        ('Giant', 'Giant'),
+        ('Triton', 'Triton'),
+        ('Mink', 'Mink'),
+        ('Long arms', 'Long arms'),
+        ('Long legs', 'Long legs'),
+        ('Three eyes', 'Three eyes'),
+        ('Dwarf', 'Dwarf'),
+        ('King', 'King'),
+        ('Hybrid', 'Hybrid'),
+        ('Cyborg', 'Cyborg'),
+        ('Newkama', 'Newkama'),
+        ('Zombie', 'Zombie'),
+        ('Unknown','Unknown'),
+    ]
+    EDAD = [(e, e) for e in range(1, 80)]
+    RANGO = [
+        ('Supernova', 'Supernova'),
+        ('Shichibukai', 'Shichibukai'),
+        ('Yonkou', 'Yonkou'),
+        ('Rey de los piratas', 'Rey de los piratas'),
+        ('Capitan', 'Capitan'),
+        ('Teniente', 'Teniente'),
+        ('Oficial', 'Oficial'),
+        ('Pirata', 'Pirata'),
+        ('Gensual', 'Gensual'),
+        ('Almirante', 'Almirante'),
+        ('Vicealmirante', 'Vicealmirante'),
+        ('Comodoro', 'Comodoro'),
+        ('Famous', 'Famous'),
+        ('Legend', 'Legend'),
+        ('Unknown', 'Unknown'),
+    ]
+    ESTADO = [
+        ('Alive', 'Alive'),
+        ('Dead', 'Dead'),
+        ('Unknown', 'Unknown'),
+    ]
+    OCU = [
+        ('Capitan', 'Capitan'),
+        ('Medico', 'Medico'),
+        ('Espadachin', 'Espadachin'),
+        ('Navegante', 'Navegante'),
+        ('Francotirador', 'Francotirador'),
+        ('Cocinero', 'Cocinero'),
+        ('Aqueólogo', 'Aqueólogo'),
+        ('Carpintero', 'Carpintero'),
+        ('Músico', 'Músico'),
+        ('Timonel', 'Timonel'),
+        ('Sirviente', 'Sirviente'),
+        ('Cientifico', 'Cientifico'),
+        ('Pirata', 'Pirata'),
+        ('Gobernate', 'Gobernate'),
+        ('Samurai', 'Samurai'),
+        ('Alcade', 'Alcade'),
+        ('Assassin', 'Assassin'),
+        ('Ministro', 'Ministro'),
+        ('Cazarrecompensa', 'Cazarrecompensa'),
+        ('Revolutionary', 'Revolutionary'),
+        ('King', 'King'),
+        ('Unknown', 'Unknown'),
+    ]
+    ATK = [
+        ('Golpe Relampago', 'Golpe Relampago'),
+        ('Chancletazo', 'Chancletazo'),
+        ('Unknown', 'Unknown'),
+    ]
 
-class Description(models.Model):
-    fruit = models.ManyToManyField(Fruit)
-    race = models.CharField(verbose_name='Raza')
-    rank = models.CharField(verbose_name='Rango')
-    state = models.CharField(verbose_name='Estado')
-    origin = models.CharField(verbose_name='Origen')
-    attack = models.TextField(verbose_name='Ataques')
-    occupation = models.CharField(verbose_name='Ocupasion')
+    name = models.CharField(verbose_name='Nombre', max_length=50)
+    image = models.ImageField(upload_to='Personaje', verbose_name='Imagen')
+    date_old = models.DateTimeField(verbose_name='Fecha de nacimiento')
+    age = models.IntegerField(
+        choices=EDAD,
+        default=EDAD[0][1],
+        verbose_name='Edad'
+    )
+    sex = models.CharField(
+        max_length=6,
+        choices=SEX,
+        default=SEX[0][1],
+        verbose_name='Sexo'
+    )
+    reward = models.FloatField(verbose_name='Recompensa')
+
+    # Descripción
+    fruit_name = models.CharField(
+        verbose_name='Nombre de fruta',
+        max_length=30
+    )
+    fruit_type = models.CharField(
+        max_length=20,
+        choices=TYPE,
+        default=TYPE[0][1],
+        verbose_name='Tipo de fruta'
+    )
+
+    race = models.CharField(
+        max_length=20,
+        choices=RAZA,
+        default=RAZA[0][1],
+        verbose_name='Raza'
+    )
+    rank = models.CharField(
+        max_length=30,
+        choices=RANGO,
+        default=RANGO[0][1],
+        verbose_name='Rango'
+    )
+    state = models.CharField(
+        max_length=6,
+        choices=ESTADO,
+        default=ESTADO[0][1],
+        verbose_name='Estado'
+    )
+    origin = models.CharField(max_length=30, verbose_name='Origen')
+    attack = models.CharField(
+        max_length=30,
+        choices=ATK,
+        default=ATK[0][1],
+        verbose_name='Ataques'
+    )
+    occupation = models.CharField(
+        max_length=20,
+        choices=OCU,
+        default=OCU[0][1],
+        verbose_name='Ocupasion'
+    )
     description = models.TextField(verbose_name='Descriccion')
+    created_on = models.DateTimeField(auto_now_add=True,verbose_name='Date published')
+    update_on = models.DateTimeField(auto_now=True,verbose_name='Date updated')
 
-class Character(models.Model):
-	name = models.CharField(verbose_name='Nombre', max_length=50)
-	image = models.ImageField(verbose_name='Imagen')
-	date_old = models.DateTimeField(verbose_name='Fecha de nacimiento')
-	ega = models.DateTimeField(verbose_name='Edad')
-	sex = models.CharField(verbose_name='Sexo', max_length=1)
-	value = models.IntegerField(verbose_name='Recompensa')
+    def __str__(self):
+        return self.name
