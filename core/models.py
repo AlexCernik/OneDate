@@ -8,6 +8,7 @@ class Character(TimeStampedModel, SoftDeletableModel):
         ('Paramecia', 'Paramecia'),
         ('Zoan', 'Zoan'),
         ('Logia', 'Logia'),
+        ('None','None'),
         ('Unknown','Unknown'),
     ]
     SEX = [
@@ -78,40 +79,44 @@ class Character(TimeStampedModel, SoftDeletableModel):
         ('Cazarrecompensa', 'Cazarrecompensa'),
         ('Revolutionary', 'Revolutionary'),
         ('King', 'King'),
+        ('None','None'),
         ('Unknown', 'Unknown'),
     ]
     ATK = [
         ('Golpe Relampago', 'Golpe Relampago'),
         ('Chancletazo', 'Chancletazo'),
+        ('None','None'),
         ('Unknown', 'Unknown'),
     ]
 
     name = models.CharField(verbose_name='Nombre', max_length=50)
-    image = models.ImageField(upload_to='Personaje', verbose_name='Imagen')
-    date_old = models.DateTimeField(verbose_name='Fecha de nacimiento')
+    image = models.ImageField(upload_to='Personaje', verbose_name='Imagen', null=True, blank=True)
+    date_old = models.DateTimeField(verbose_name='Fecha de nacimiento',null=True,blank=True)
     age = models.IntegerField(
         choices=EDAD,
         default=EDAD[0][1],
-        verbose_name='Edad'
+        verbose_name='Edad',
     )
     sex = models.CharField(
         max_length=6,
         choices=SEX,
         default=SEX[0][1],
-        verbose_name='Sexo'
+        verbose_name='Sexo',
     )
-    reward = models.FloatField(verbose_name='Recompensa')
+    reward = models.FloatField(verbose_name='Recompensa',blank=True)
 
     # Descripción
     fruit_name = models.CharField(
         verbose_name='Nombre de fruta',
-        max_length=30
+        max_length=30,
+        blank=True
     )
     fruit_type = models.CharField(
         max_length=20,
         choices=TYPE,
         default=TYPE[0][1],
-        verbose_name='Tipo de fruta'
+        verbose_name='Tipo de fruta',
+        blank=True
     )
 
     race = models.CharField(
@@ -132,12 +137,13 @@ class Character(TimeStampedModel, SoftDeletableModel):
         default=ESTADO[0][1],
         verbose_name='Estado'
     )
-    origin = models.CharField(max_length=30, verbose_name='Origen')
+    origin = models.CharField(max_length=30, verbose_name='Origen',blank=True)
     attack = models.CharField(
         max_length=30,
         choices=ATK,
         default=ATK[0][1],
-        verbose_name='Ataques'
+        verbose_name='Ataques',
+        blank=True,
     )
     occupation = models.CharField(
         max_length=20,
@@ -145,7 +151,7 @@ class Character(TimeStampedModel, SoftDeletableModel):
         default=OCU[0][1],
         verbose_name='Ocupasion'
     )
-    description = models.TextField(verbose_name='Descriccion')
+    description = models.TextField(verbose_name='Descriccion',blank=True,null=True)
     created_on = models.DateTimeField(auto_now_add=True,verbose_name='Date published')
     update_on = models.DateTimeField(auto_now=True,verbose_name='Date updated')
 
