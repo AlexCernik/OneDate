@@ -3,11 +3,14 @@ certifi==2020.6.20
 chardet==3.0.4
 Django==2.2.16
 django-ckeditor==6.0.0
+django-decouple==2.1
+django-dropbox-storage==0.4.1
 django-filter==2.4.0
 django-js-asset==1.2.2
 django-model-utils==4.0.0
 djangorestframework==3.12.1
 djangorestframework-simplejwt==4.4.0
+dropbox==10.8.0
 html5lib==1.1
 idna==2.10
 importlib-metadata==2.0.0
