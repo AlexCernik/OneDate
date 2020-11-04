@@ -4,7 +4,13 @@ from rest_framework.response import Response
 from .serializers import CharacterSerializer
 from .models import Character
 from django.http import Http404
+from django.shortcuts import render
 
+def index(request):
+  return render(request, 'index.html')
+
+def api(request):
+  return render(request,'api.html')
 class Character_APIView(APIView):
   def get(self, request, fortmat=None, *args, **kwargs):
     character = Character.objects.all()
