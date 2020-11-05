@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'tools.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 from . import db
-DATABASES = db.POSTGRES_LOCAL
+DATABASES = db.POSTGRES_PRODUCTION
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
