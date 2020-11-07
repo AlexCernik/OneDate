@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     #Packages
     'rest_framework',
     # 'rest_framework_authtoken',
-    'django_dropbox_storage',
+    # 'django_dropbox_storage',
     #APPS
     'core',
     'api',
