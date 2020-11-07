@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Packages
     'rest_framework',
+    'corsheaders',
     # 'rest_framework_authtoken',
     # 'django_dropbox_storage',
     #APPS
@@ -54,8 +55,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #CORS
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    #WHITENOISE
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS  = []
+# CORS_ALLOW_METHODS = [
+#     'GET',
+# ]
 
 ROOT_URLCONF = 'tools.urls'
 
