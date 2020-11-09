@@ -33,7 +33,7 @@ class Character(models.Model):
     ('Zombie', 'Zombie'),
     ('Unknown','Unknown'),
   ]
-  EDAD = [(e, e) for e in range(1, 80)]
+  EDAD = [(e, e) for e in range(1, 151)]
   RANGO = [
     ('Supernova', 'Supernova'),
     ('Shichibukai', 'Shichibukai'),
@@ -78,12 +78,6 @@ class Character(models.Model):
     ('Cazarrecompensa', 'Cazarrecompensa'),
     ('Revolutionary', 'Revolutionary'),
     ('King', 'King'),
-    ('None','None'),
-    ('Unknown', 'Unknown'),
-  ]
-  ATK = [
-    ('Golpe Relampago', 'Golpe Relampago'),
-    ('Chancletazo', 'Chancletazo'),
     ('None','None'),
     ('Unknown', 'Unknown'),
   ]
@@ -135,13 +129,6 @@ class Character(models.Model):
     verbose_name='Estado'
   )
   origin = models.CharField(max_length=30, verbose_name='Origen',blank=True)
-  attack = models.CharField(
-    max_length=30,
-    choices=ATK,
-    default=ATK[0][1],
-    verbose_name='Ataques',
-    blank=True,
-  )
   occupation = models.CharField(
     max_length=20,
     choices=OCU,

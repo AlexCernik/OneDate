@@ -1,91 +1,48 @@
 {% extends 'body.html' %}
 
+{% load static %}
 {% block content %}
   <main>
-    <section class='hero__wrapper'>
-      <h1>Welcome a API</h1>
-      <div class='hero-image'></div>
+    <section class='hero__Wrapper'>
+      <div class="row justify-content-md-center">
+        <div class="logo">
+          <h1 class="display-1">One Piece API</h1>
+          <div class='hero-image'></div>
+        </div>
+      </div>
     </section>
     <section class='shwcase__wrapper'>
       <div class='shocase__Inner'>
-        <article class='characterCard__wrapper'>
-          <div class='characterCard__img-wrapper'>
-            <img/>
+        <div class='container-fluid'>
+          <div class="row justify-content-md-center">
+            {% load characters_extras %}
+            {% get_character_random as characters %}
+            {% for chart in characters %}
+              <div class="card m-3" style="max-width: 540px;">
+                <div class="row no-gutters bg-dark">
+                  <div class="col-md-4">
+                    <img src="{{ chart.image.url }}" height="400px" class="card-img" alt="{{chart.name}}">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <a href="https://apionepiece.herokuapp.com/api/character/{{chart.id}}" target='_blank'>
+                        <h2 class="card-title">{{chart.name}}</h2>
+                      </a>
+                      <div class="status">
+                        <span class="status__icon-{{chart.state}}"></span>
+                          {{chart.state}} - {{chart.race}}
+                      </div>
+                      <p class="card-text">{{chart.description}}</p>
+                      <p class="card-text">{{chart.fruit_name}}</p>
+                      <p class="card-text"><img src="{% static 'img/Belly.png' %}" height="30px" width="30px" alt="Belly|Money/Cash">{{chart.reward}}</p>
+                      <p class="card-text"><small class="text-muted">{{chart.origin}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
           </div>
-          <div class='characterCard__content-wrapper'>
-            <div class='section'>
-              <a></a>
-              <span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </article>
-        <article class='characterCard__wrapper'>
-          <div class='characterCard__img-wrapper'>
-            <img/>
-          </div>
-          <div class='characterCard__content-wrapper'>
-            <div class='section'>
-              <a></a>
-              <span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </article>
-        <article class='characterCard__wrapper'>
-          <div class='characterCard__img-wrapper'>
-            <img/>
-          </div>
-          <div class='characterCard__content-wrapper'>
-            <div class='section'>
-              <a></a>
-              <span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </article>
-        <article class='characterCard__wrapper'>
-          <div class='characterCard__img-wrapper'>
-            <img/>
-          </div>
-          <div class='characterCard__content-wrapper'>
-            <div class='section'>
-              <a></a>
-              <span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </article>
-        <article class='characterCard__wrapper'>
-          <div class='characterCard__img-wrapper'>
-            <img/>
-          </div>
-          <div class='characterCard__content-wrapper'>
-            <div class='section'>
-              <a></a>
-              <span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </article>
-        <article class='characterCard__wrapper'>
-          <div class='characterCard__img-wrapper'>
-            <img/>
-          </div>
-          <div class='characterCard__content-wrapper'>
-            <div class='section'>
-              <a></a>
-              <span>
-                <span></span>
-              </span>
-            </div>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
   </main>

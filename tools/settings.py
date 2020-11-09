@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     # 'rest_framework_authtoken',
-    # 'django_dropbox_storage',
+    'storages',
+    'django_dropbox_storage',
     #APPS
     'core',
     'api',
@@ -85,6 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },

@@ -1,0 +1,90 @@
+.row{
+  margin-right: 0;
+}
+
+.hero-image{
+  height: 320px;
+  background-image: url("../img/one_piece_character_silhouettes_vector.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .3;
+}
+
+.shwcase__wrapper{
+  background: rgb(36, 40, 47);
+}
+
+.logo{
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.display-1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.card-body{
+  color: rgb(245, 245, 245);
+}
+
+.status {
+  line-height: 40px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.status__icon-Alive {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  background: rgb(85, 204, 68);
+  border-radius: 50%;
+}
+.status__icon-Dead {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  background: rgb(214, 61, 46);
+  border-radius: 50%;
+}
+.status__icon-Unknown {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  background: rgb(158, 158, 158);
+  border-radius: 50%;
+}
+
+a{
+  color: rgb(245, 245, 245);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 152, 0);
+  text-decoration: none;
+}
+
+.card-title{
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.card{
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-outline-success {
+  color: rgb(255, 152, 0);
+  border-color: rgb(255, 152, 0);
+}
