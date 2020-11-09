@@ -6,9 +6,11 @@ Django==2.2.16
 django-ckeditor==6.0.0
 django-cors-headers==3.5.0
 django-decouple==2.1
+django-dropbox-storage==0.4.1
 django-filter==2.4.0
 django-js-asset==1.2.2
 django-model-utils==4.0.0
+django-storages==1.10.1
 djangorestframework==3.12.1
 djangorestframework-simplejwt==4.4.0
 dropbox==10.8.0
