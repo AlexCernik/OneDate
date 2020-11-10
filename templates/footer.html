@@ -1,22 +1,54 @@
+{% load characters_extras %}
+{% get_character_random as all %}
+{% get_character_alive as alive %}
+{% get_character_dead as dead %}
 <footer class='container-fliud'>
-  <div class="row justify-content-md-center">
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+  <div class="navbar-footer bg-dark">
+    <ul class="navbar-nav-footer mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a href="/api/" target="_blank" title="Characters">
+          <span class="m-2">Characters: {{all|length}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/api/character/alive/" target="_blank" title="Alive">
+          <span class="m-2">Alive: {{alive|length}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/api/character/dead/" target="_blank" title="Dead">
+          <span class="m-2">Dead: {{dead|length}}</span>
+        </a>
+      </li>
     </ul>
-    <a href=""></a>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+    <ul class="navbar-nav-footer">
+      <li class="nav-item">
+        <a href="https://github.com/AlexCernik/OneDate" target="_blank">
+          <span class="m-3"><i class="fab fa-github fa-lg"></i></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" target="_blank">
+          <span class="m-3"><i class="fab fa-facebook fa-lg"></i></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" target="_blank">
+          <span class="m-3"><i class="fab fa-instagram fa-lg"></i></span>
+        </a>
+      </li>
     </ul>
-    <a href=""></a>
     <div>
       <span>
-        <a href=""></a>
+        ❮❯ by
+        <a href="https://yoydev3.herokuapp.com" target="_blank">YoYdev & AlexCernik</a>
       </span>
-      <span></span>
+      <span>
+        <script>
+          let year = new Date().getFullYear()
+          window.document.write(year)
+        </script>
+      </span>
     </div>
   </div>
 </footer>

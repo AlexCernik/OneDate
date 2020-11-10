@@ -1,7 +1,3 @@
-.row{
-  margin-right: 0;
-}
-
 .hero-image{
   height: 320px;
   background-image: url("../img/one_piece_character_silhouettes_vector.jpg");
@@ -79,12 +75,41 @@ a:hover {
   line-height: 1.1;
 }
 
-.card{
-  border: none;
+/* .bd-rd{
   border-radius: 10px;
+} */
+
+.card{
+  border:none;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255,.1);
 }
 
 .btn-outline-success {
   color: rgb(255, 152, 0);
   border-color: rgb(255, 152, 0);
+}
+
+/* Footer */
+
+.navbar-footer{
+  color: rgb(158, 158, 158);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4.5rem 0px;
+  min-height: calc(120px);
+  text-align: center;
+}
+
+.navbar-nav-footer{
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.shwcase__wrapper{
+  padding: 50px 0;
+}
+
+a::selection {
+  color: rgb(255, 152, 0);
 }

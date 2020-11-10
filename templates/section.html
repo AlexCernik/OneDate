@@ -4,24 +4,26 @@
 {% block content %}
   <main>
     <section class='hero__Wrapper'>
-      <div class="row justify-content-md-center">
-        <div class="logo">
-          <h1 class="display-1">One Piece API</h1>
-          <div class='hero-image'></div>
+      <div class="container-fluid">
+        <div class="row justify-content-md-center">
+          <div class="logo">
+            <h1 class="display-1">One Piece API</h1>
+            <div class='hero-image'></div>
+          </div>
         </div>
       </div>
     </section>
     <section class='shwcase__wrapper'>
       <div class='shocase__Inner'>
         <div class='container-fluid'>
-          <div class="row justify-content-md-center">
+          <div class="row justify-content-md-center md-5">
             {% load characters_extras %}
             {% get_character_random as characters %}
             {% for chart in characters %}
               <div class="card m-3" style="max-width: 540px;">
-                <div class="row no-gutters bg-dark">
+                <div class="row no-gutters bd-rd bg-dark">
                   <div class="col-md-4">
-                    <img src="{{ chart.image.url }}" height="400px" class="card-img" alt="{{chart.name}}">
+                    <img src="{{ chart.image.url }}" height="400px" style="box-shadow: inset 0 0 15px 5px rgba(0,0,0,.3);" class="card-img" alt="{{chart.name}}">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">

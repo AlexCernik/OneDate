@@ -17,16 +17,39 @@ def get_object(pk):
 
 # por id
 @api_view(['GET'])
-def get_characters_details(request,pk,format='json'):
+def get_characters_details(request,pk):
   character = get_object(pk)
   serializer = serializer_class(character)
   return JsonResponse(serializer.data)
 
 @api_view(['GET'])
-def get_characters_lists(request, format=None, *args, **kwargs):
-  character = Character.objects.all()
-  serializer = serializer_class(character,many=True)
-  return Response(serializer.data)
+def get_characters_lists(request,format=None):
+  try:
+    character = Character.objects.all()
+    serializer = serializer_class(character,many=True)
+    return Response(serializer.data)
+  except Character.DoesNotExist:
+    return Http404
+
+@api_view(['GET'])
+def get_characters_alive(request,format=None):
+  try:
+    character = Character.objects.all().filter(state__contains='Alive')
+    if character:
+      serializer = serializer_class(character,many=True)
+      return Response(serializer.data)
+  except Character.DoesNotExist:
+    return Http404
+
+@api_view(['GET'])
+def get_characters_dead(request,format=None):
+  try:
+    character = Character.objects.all().filter(state__contains='Dead')
+    if character:
+      serializer = serializer_class(character,many=True)
+      return Response(serializer.data)
+  except Character.DoesNotExist:
+    return Http404
 
 # @api_view(['GET'])
 # def apiOverView(request):
