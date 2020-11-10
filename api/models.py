@@ -18,6 +18,7 @@ class Character(models.Model):
   RAZA = [
     ('Human', 'Human'),
     ('Reindeer', 'Reindeer'),
+    ('Animal','Animal'),
     ('Gyoji', 'Gyoji'),
     ('Giant', 'Giant'),
     ('Triton', 'Triton'),
