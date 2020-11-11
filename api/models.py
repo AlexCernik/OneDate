@@ -10,7 +10,7 @@ class Character(models.Model):
     ('None','None'),
     ('Unknown','Unknown'),
   ]
-  SEX = [
+  GENDER = [
     ('Male', 'Male'),
     ('Female', 'Female'),
     ('Unknown','Unknown'),
@@ -90,11 +90,11 @@ class Character(models.Model):
     default=EDAD[0][1],
     verbose_name='Edad',
   )
-  sex = models.CharField(
+  gender = models.CharField(
     max_length=6,
-    choices=SEX,
-    default=SEX[0][1],
-    verbose_name='Sexo',
+    choices=GENDER,
+    default=GENDER[0][1],
+    verbose_name='Genero',
   )
   # Descripción
   reward = models.DecimalField(verbose_name='Recompensa',max_digits=10, decimal_places=3,blank=True)
