@@ -1,0 +1,75 @@
+{% extends 'body.html' %}
+{% block title %}<title>Documentation</title>{% endblock title %}
+{% block content %}
+<main class="container-fluid">
+  <div class="row m-5">
+    <h2 class="display-5">Introduction</h2>
+    <p>This documentation will help you get familiar with the recurces of the One Piece API and show you now to make different queries, so that you can get the mostout of it</p>
+    <div class="container">
+      <h3 class="h3">REST</h3>
+      <p>
+        <strong>Base url:</strong>
+        <a class="link" href="https://apionepiece.herokuapp.com/api/" rel="nofollow noopener noreferrer" target="_blank" title="One Piece API">https://apionepiece.herokuapp.com/api/</a>
+      </p>
+      <p>The base url contains information about all available API's resources. All reuqests are
+        <code>GET</code>
+        requests and go over
+        <code>https</code>
+        . All response will return data in
+        <code>Json</code>.
+      </p>
+      <p>Sample request</p>
+      <div data-language="text">
+        <pre class="language-text">
+          <code class="language-text">https://apionepiece.herokuapp.com/api/</code>
+        </pre>
+      </div>
+      <div data-language="json">
+        <pre class="language-json">
+          <code class="language-json">
+          <span class="token punctuation">{</span>
+            <span class="token property">"characters"</span><span class="token operator">:</span><span class="token string">"https://apionepiece.herokuapp.com/api/"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span>
+          </code>
+        </pre>
+      </div>
+      <h3 class="h3">Get a simgle character</h3>
+      <p>
+        You can get a single character by adding the
+        <code>id</code>
+        as a parameter: 
+        <code>/character/1</code>
+      </p>
+      <div data-language="text">
+        <pre class="language-text">
+          <code class="language-text">https://apionepiece.herokuapp.com/api/character/1</code>
+        </pre>
+      </div>
+      <div data-language="json">
+        <pre class="language-json">
+          <code class="language-json">
+          <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span><span class="token string">"Monkey D Luffy"</span><span class="token punctuation">,</span>
+            <span class="token property">"image"</span><span class="token operator">:</span><span class="token string">"https://content.dropboxapi.com/apitl/1/..."</span><span class="token punctuation">,</span>
+            <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">19</span><span class="token punctuation">,</span>
+            <span class="token property">"gender"</span><span class="token operator">:</span><span class="token string">Male</span><span class="token punctuation">,</span>
+            <span class="token property">"reward"</span><span class="token operator">:</span><span class="token number">1.500.000.000</span><span class="token punctuation">,</span>
+            <span class="token property">"fruit_name"</span><span class="token operator">:</span><span class="token string">"Gomu Gomu no mi"</span><span class="token punctuation">,</span>
+            <span class="token property">"fruit_type"</span><span class="token operator">:</span><span class="token string">"Paramecia"</span><span class="token punctuation">,</span>
+            <span class="token property">"race"</span><span class="token operator">:</span><span class="token string">"Human"</span><span class="token punctuation">,</span>
+            <span class="token property">"rank"</span><span class="token operator">:</span><span class="token string">"Supernova"</span><span class="token punctuation">,</span>
+            <span class="token property">"status"</span><span class="token operator">:</span><span class="token string">"Alive"</span><span class="token punctuation">,</span>
+            <span class="token property">"origin"</span><span class="token operator">:</span><span class="token string">"East Blue - Villa Foosha"</span><span class="token punctuation">,</span>
+            <span class="token property">"occupation"</span><span class="token operator">:</span><span class="token string">"Capitan"</span><span class="token punctuation">,</span>
+            <span class="token property">"description"</span><span class="token operator">:</span><span class="token string">"está decidido a ser el rey de los piratas aunque no se lo van a poner fácil."</span><span class="token punctuation">,</span>
+            <span class="token property">"create_on"</span><span class="token operator">:</span><span class="token string">"2020-11-09T17:56:49.467525Z"</span><span class="token punctuation">,</span>
+            <span class="token property">"update_on"</span><span class="token operator">:</span><span class="token string">"2020-11-09T17:56:49.467558Z"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span>
+        </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

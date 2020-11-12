@@ -123,7 +123,7 @@ class Character(models.Model):
     default=RANGO[0][1],
     verbose_name='Rango'
   )
-  state = models.CharField(
+  status = models.CharField(
     max_length=6,
     choices=ESTADO,
     default=ESTADO[0][1],

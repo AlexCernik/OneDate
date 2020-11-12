@@ -6,3 +6,9 @@ from api.models import Character
 
 def index(request):
   return render(request, 'section.html')
+
+def hepl_up(request):
+  return render(request, 'html-extra/help_us.html')
+
+def documentation(request):
+  return render(request,'html-extra/documentation.html')

@@ -22,17 +22,17 @@
             {% for chart in characters %}
               <div class="card m-3" style="max-width: 540px;">
                 <div class="row no-gutters bd-rd bg-dark">
-                  <div class="col-md-4">
+                  <div class="col-md-5">
                     <img src="{{ chart.image.url }}" height="400px" style="box-shadow: inset 0 0 15px 5px rgba(0,0,0,.3);" class="card-img" alt="{{chart.name}}">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <div class="card-body">
                       <a href="https://apionepiece.herokuapp.com/api/character/{{chart.id}}" target='_blank'>
                         <h2 class="card-title">{{chart.name}}</h2>
                       </a>
                       <div class="status">
                         <span class="status__icon-{{chart.state}}"></span>
-                          {{chart.state}} - {{chart.race}}
+                          {{chart.status}} - {{chart.race}}
                       </div>
                       <p class="card-text">{{chart.description}}</p>
                       <p class="card-text">{{chart.fruit_name}}</p>

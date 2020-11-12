@@ -110,6 +110,59 @@ a:hover {
   padding: 50px 0;
 }
 
-a::selection {
-  color: rgb(255, 152, 0);
+.article__Article {
+  padding: 0px 1.5rem;
+  max-width: 960px;
+  margin: 0px auto 60px;
+  min-height: 50vh;
+}
+
+.article__Article p{
+  font-size: 20px;
+}
+
+.link{
+  color: rgb(36, 40, 47);
+  border-bottom: 2px solid rgb(255, 152, 0);
+}
+
+.link:hover{
+  border-bottom: none;
+}
+
+pre[class*="language-"] {
+  background: rgb(32, 35, 41);
+  padding: 1em;
+  font-size: 1em;
+  text-align: left;
+  display: flex;
+  margin: 0.5em 0px 1em;
+  overflow: auto;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 5px 20px;
+}
+
+code[class*="language-"]{
+  color: rgb(245, 245, 245);
+  background: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-height: 1.5;
+  tab-size: 2;
+  hyphens: none;
+  font-weight: 400;
+}
+
+.property{
+  color: #f15665;
+}
+.string{
+  color: #6dca8f;
+}
+
+.token.operator,.token.punctuation,.token.url,.language-css .token.string,.style .token.string,.token.variable {
+  color: rgb(171, 178, 191);
 }
