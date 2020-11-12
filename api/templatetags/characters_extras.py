@@ -25,13 +25,13 @@ def get_character_random():
 @register.simple_tag
 def get_character_alive():
   try:
-    return Character.objects.filter(state__contains='Alive')
+    return Character.objects.filter(status__contains='Alive')
   except Character.DoesNotExist:
     return Http404
 
 @register.simple_tag
 def get_character_dead():
   try:
-    return Character.objects.filter(state__contains='Dead')
+    return Character.objects.filter(status__contains='Dead')
   except Character.DoesNotExist:
     return Http404
