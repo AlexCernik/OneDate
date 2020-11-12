@@ -1,3 +1,7 @@
+::selection{
+	color:rgb(255,152,0);
+	background:rgb(32,35,41);
+}
 .hero-image{
   height: 320px;
   background-image: url("../img/one_piece_character_silhouettes_vector.jpg");
