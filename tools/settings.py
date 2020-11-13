@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+
 MIDDLEWARE_CLASSES = [
     #CORS
     'corsheaders.middleware.CorsMiddleware',
@@ -67,7 +68,6 @@ MIDDLEWARE_CLASSES = [
 
 # Permisos a todas los origenes
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = False
 
 # CORS_ALLOWED_ORIGINS  = [
 #     'https://apionepiece.herokuapp.com',
