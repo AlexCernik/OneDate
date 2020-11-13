@@ -2,10 +2,10 @@
 {% block title %}<title>Documentation</title>{% endblock title %}
 {% block content %}
 <main class="container-fluid">
-  <div class="row m-5">
+  <div class="row m-2">
+    <div class="container mt-5 mb-5">
     <h2 class="display-5">Introduction</h2>
     <p>This documentation will help you get familiar with the recurces of the One Piece API and show you now to make different queries, so that you can get the mostout of it</p>
-    <div class="container">
       <h3 class="h3">REST</h3>
       <p>
         <strong>Base url:</strong>
@@ -35,93 +35,95 @@
       </div>
       <h3 class="h3">Character</h3>
       <p>There is a total of 15 for the moments, character's sorted by id.</p>
-			<h3 class="h3">Character Scheme</h3>
-			<table class="table mb-5 lead">
-				<thead class="thead-dark">
-					<tr>
-						<th scope="col">Key</ht>
-						<th scope="col">Type</ht>
-						<th scope="col">Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td scope="row">id</td>
-						<td>int</td>
-						<td>The id of character.</td>
-					</tr>
-					<tr>
-						<td scope="row">name</td>
-						<td>string</td>
-						<td>The name of the character.</td>
-					</tr>
-					<tr>
-						<td scope="row">image</td>
-						<td>string</td>
-						<td>Link to the character's image. All images are 300x500px and most are medium shots or portraits since they are intended to be used as avatars.</td>
-					</tr>
-					<tr>
-						<td scope="row">age</td>
-						<td>int</td>
-						<td>Age of the character's.</td>
-					</tr>
-					<tr>
-						<td scope="row">gender</td>
-						<td>string</td>
-						<td>The gender of the character('Female','Male' or 'Unknown').</td>
-          </tr>
-          <tr>
-						<td scope="row">reward</td>
-						<td>string</td>
-						<td>The reward of character.</td>
-          </tr>
-          <tr>
-						<td scope="row">fruit_name</td>
-						<td>string</td>
-						<td>Character fruit name.</td>
-          </tr>
-          <tr>
-						<td scope="row">fruit_type</td>
-						<td>string</td>
-						<td>Character fruit type.</td>
-          </tr>
-          <tr>
-						<td scope="row">race</td>
-						<td>string</td>
-						<td>The type or subspecies of the character ('Human','Cyborg' or 'Gyoji').</td>
-          </tr>
-          <tr>
-						<td scope="row">rank</td>
-						<td>string</td>
-						<td>Character rank type.</td>
-          </tr>
-          <tr>
-						<td scope="row">status</td>
-						<td>string</td>
-						<td>The status of the character ('Alive', 'Dead' or 'Unknown').</td>
-          </tr>
-          <tr>
-						<td scope="row">origin</td>
-						<td>string</td>
-						<td>Character origin.</td>
-          </tr>
-          <tr>
-						<td scope="row">occupation</td>
-						<td>string</td>
-						<td>The occupation of the character ('Capitan', 'Samurai' or 'Unknown').</td>
-          </tr>
-          <tr>
-						<td scope="row">created_on</td>
-						<td>string</td>
-						<td>Time at which the character was created in the database.</td>
-          </tr>
-          <tr>
-						<td scope="row">update_on</td>
-						<td>string</td>
-						<td>Time at whichthe character was update in the database.</td>
-					</tr>
-				</tbody>
-			</table>
+      <h3 class="h3">Character Scheme</h3>
+      <div class="table-responsive-md">
+        <table class="table mb-5 table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Key</ht>
+              <th scope="col">Type</ht>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">id</td>
+              <td>int</td>
+              <td>The id of character.</td>
+            </tr>
+            <tr>
+              <td scope="row">name</td>
+              <td>string</td>
+              <td>The name of the character.</td>
+            </tr>
+            <tr>
+              <td scope="row">image</td>
+              <td>string</td>
+              <td>Link to the character's image. All images are 300x500px and most are medium shots or portraits since they are intended to be used as avatars.</td>
+            </tr>
+            <tr>
+              <td scope="row">age</td>
+              <td>int</td>
+              <td>Age of the character's.</td>
+            </tr>
+            <tr>
+              <td scope="row">gender</td>
+              <td>string</td>
+              <td>The gender of the character('Female','Male' or 'Unknown').</td>
+            </tr>
+            <tr>
+              <td scope="row">reward</td>
+              <td>string</td>
+              <td>The reward of character.</td>
+            </tr>
+            <tr>
+              <td scope="row">fruit_name</td>
+              <td>string</td>
+              <td>Character fruit name.</td>
+            </tr>
+            <tr>
+              <td scope="row">fruit_type</td>
+              <td>string</td>
+              <td>Character fruit type.</td>
+            </tr>
+            <tr>
+              <td scope="row">race</td>
+              <td>string</td>
+              <td>The type or subspecies of the character ('Human','Cyborg' or 'Gyoji').</td>
+            </tr>
+            <tr>
+              <td scope="row">rank</td>
+              <td>string</td>
+              <td>Character rank type.</td>
+            </tr>
+            <tr>
+              <td scope="row">status</td>
+              <td>string</td>
+              <td>The status of the character ('Alive', 'Dead' or 'Unknown').</td>
+            </tr>
+            <tr>
+              <td scope="row">origin</td>
+              <td>string</td>
+              <td>Character origin.</td>
+            </tr>
+            <tr>
+              <td scope="row">occupation</td>
+              <td>string</td>
+              <td>The occupation of the character ('Capitan', 'Samurai' or 'Unknown').</td>
+            </tr>
+            <tr>
+              <td scope="row">created_on</td>
+              <td>string</td>
+              <td>Time at which the character was created in the database.</td>
+            </tr>
+            <tr>
+              <td scope="row">update_on</td>
+              <td>string</td>
+              <td>Time at whichthe character was update in the database.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <h3 class="h3">Get a simgle character</h3>
       <p>
         You can get a single character by adding the
