@@ -1,0 +1,26 @@
+{% extends 'body.html' %}
+{% block title %}<title>About</title>{% endblock %}
+{% block content %}
+<main class="container-fluid">
+  <div class="mt-5">
+    <article class="article__Article justify-content-md-center">
+      <div class="container lead">
+        <h3 class="h2">What is this?</h3>
+        <p>The One Piece API is a RESTfull API based on the Anime show One Piece. You will have access to about hundreds of character's images,reward and race.</p>
+        <a class="link" href="/documentation/">Check out documentation to get started</a>
+        <h3 class="h2">Who are you?</h3>
+        <p>We are <a class="link" href="https://yoydev3.herokuapp.com" target="_blank" rel="nofollow noopener noreferrer">Dominyel.YoY</a>, a guy who likes to develop things and <a class="link" href="https://www.myruby.com.ar/" target="_blank" rel="nofollow noopener noreferrer">AlexCernik</a>, the "One Piece" and hardcode fan.</p>
+        <h3 class="h2">Why did you build this?</h3>
+        <p>Because we were reallu interesred in the idea of writing an open source project and also because One Piece is our favorite show at the moment, so why not?</p>
+        <h3 class="h2">Technical stuff?</h3>
+        <p>We use <a class="link" href="https://www.djangoproject.com" target="_blank" rel="noopener noreferrer">Django</a> and <a class="link" href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer"></a> to serve the API. All the data is format <a class="link" href="https://www.json.org" target="_blank" rel="noopener noreferrer">json</a> and the entire project is hosted on <a class="link" href="https://dashboard.heroku.com" target="_blank" rel="noopener noreferrer">Heroku</a> and <a class="link" href="https://www.alwaysdata.com" target="_blank" rel="noopener noreferrer">Alwaysdata</a>.</p>
+        <h3 class="h2">How can I contribute to the project</h3>
+        <p>You can <a class="link" href="/help-us/" target="_blank" rel="noopener noreferrer">help us to keep the project alive</a> and you can also contribute on <a class="link" href="https://github.com/AlexCernik/OneDate" target="_blank" rel="noopener noreferrer">Github</a>.</p>
+        <h3 class="h2">Copyright</h3>
+        <p>One Piece is created by <a class="link" href="https://es.wikipedia.org/wiki/Eiichir%C5%8D_Oda" target="_blank" rel="noopener noreferrer">Eiichirō Oda</a>. The data and images are used whithout claim of ownership and belong to their respective owners.</p>
+        <p>This API is open source and uses a BSD license.</p>
+      </div>
+    </article>
+  </div>
+</main>
+{% endblock %}

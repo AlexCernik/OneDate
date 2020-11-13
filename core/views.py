@@ -12,3 +12,6 @@ def hepl_up(request):
 
 def documentation(request):
   return render(request,'html-extra/documentation.html')
+
+def about(request):
+  return render(request,'html-extra/about.html')

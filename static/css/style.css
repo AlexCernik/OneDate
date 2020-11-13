@@ -122,13 +122,14 @@ a:hover {
 }
 
 .article__Article p{
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .link{
   color: rgb(36, 40, 47);
   border-bottom: 2px solid rgb(255, 152, 0);
 }
+
 
 .link:hover{
   border-bottom: none;
@@ -169,4 +170,8 @@ code[class*="language-"]{
 
 .token.operator,.token.punctuation,.token.url,.language-css .token.string,.style .token.string,.token.variable {
   color: rgb(171, 178, 191);
+}
+
+.h2{
+  margin: 1.50em 0 .40em 0;
 }
