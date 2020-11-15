@@ -34,7 +34,7 @@ def get_characters_lists(request,format=None):
 @api_view(['GET'])
 def get_characters_alive(request,format=None):
   try:
-    character = Character.objects.all().filter(state__contains='Alive')
+    character = Character.objects.all().filter(status__contains='Alive')
     if character:
       serializer = serializer_class(character,many=True)
       return Response(serializer.data)
@@ -44,7 +44,7 @@ def get_characters_alive(request,format=None):
 @api_view(['GET'])
 def get_characters_dead(request,format=None):
   try:
-    character = Character.objects.all().filter(state__contains='Dead')
+    character = Character.objects.all().filter(status__contains='Dead')
     if character:
       serializer = serializer_class(character,many=True)
       return Response(serializer.data)
