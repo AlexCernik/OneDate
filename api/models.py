@@ -17,6 +17,11 @@ class Character(models.Model):
   ]
   RAZA = [
     ('Human', 'Human'),
+    ('Kuja','Kuja'),
+    ('Ancestral giant','Ancestral giant'),
+    ('Shandian','Shandian'),
+    ('Clone','Clone'),
+    ('Nobles','Nobles'),
     ('Reindeer', 'Reindeer'),
     ('Animal','Animal'),
     ('Gyoji', 'Gyoji'),
@@ -39,17 +44,16 @@ class Character(models.Model):
     ('Supernova', 'Supernova'),
     ('Shichibukai', 'Shichibukai'),
     ('Yonkou', 'Yonkou'),
-    ('Rey de los piratas', 'Rey de los piratas'),
-    ('Capitan', 'Capitan'),
-    ('Teniente', 'Teniente'),
-    ('Oficial', 'Oficial'),
-    ('Pirata', 'Pirata'),
-    ('Gensual', 'Gensual'),
-    ('Almirante', 'Almirante'),
-    ('Vicealmirante', 'Vicealmirante'),
-    ('Comodoro', 'Comodoro'),
-    ('Famous', 'Famous'),
+    ('Pirata King', 'Pirata King'),
+    ('Captain', 'Captain'),
+    ('First official','First official'),
+    ('Official', 'Official'),
+    ('Liuetenant', 'Liuetenant'),
+    ('Admiral', 'Admiral'),
+    ('Vice admiral', 'Vice admiral'),
+    ('Commodore', 'Commodore'),
     ('Legend', 'Legend'),
+    ('None','None'),
     ('Unknown', 'Unknown'),
   ]
   ESTADO = [
@@ -58,25 +62,28 @@ class Character(models.Model):
     ('Unknown', 'Unknown'),
   ]
   OCU = [
-    ('Capitan', 'Capitan'),
-    ('Medico', 'Medico'),
-    ('Espadachin', 'Espadachin'),
-    ('Navegante', 'Navegante'),
-    ('Francotirador', 'Francotirador'),
-    ('Cocinero', 'Cocinero'),
-    ('Aqueólogo', 'Aqueólogo'),
-    ('Carpintero', 'Carpintero'),
-    ('Músico', 'Músico'),
-    ('Timonel', 'Timonel'),
-    ('Sirviente', 'Sirviente'),
-    ('Cientifico', 'Cientifico'),
-    ('Pirata', 'Pirata'),
-    ('Gobernate', 'Gobernate'),
+    ('Captain', 'Captain'),
+    ('Doctor', 'Doctor'),
+    ('Swordsman', 'Swordsman'),
+    ('Navigator', 'Navigator'),
+    ('Sniper', 'Sniper'),
+    ('Chef', 'Chef'),
+    ('Tenryuubito','Tenryuubito'),
+    ('archaeologist', 'archaeologist'),
+    ('Carpenter', 'Carpenter'),
+    ('Musician', 'Musician'),
+    ('Explorer','Explorer'),
+    ('Helmsman', 'Helmsman'),
+    ('Servant', 'Servant'),
+    ('Scientific', 'Scientific'),
+    ('Pirate', 'Pirate'),
+    ('Governing', 'Governing'),
     ('Samurai', 'Samurai'),
     ('Alcade', 'Alcade'),
     ('Assassin', 'Assassin'),
-    ('Ministro', 'Ministro'),
-    ('Cazarrecompensa', 'Cazarrecompensa'),
+    ('Famous', 'Famous'),
+    ('Minister', 'Minister'),
+    ('Bounty hunter', 'Bounty hunter'),
     ('Revolutionary', 'Revolutionary'),
     ('King', 'King'),
     ('None','None'),
@@ -97,7 +104,7 @@ class Character(models.Model):
     verbose_name='Genero',
   )
   # Descripción
-  reward = models.DecimalField(verbose_name='Recompensa',max_digits=10, decimal_places=3,blank=True)
+  reward = models.DecimalField(verbose_name='Recompensa',max_digits=10, decimal_places=3,blank=True,null=True)
   fruit_name = models.CharField(
     verbose_name='Nombre de fruta',
     max_length=30,
@@ -129,7 +136,7 @@ class Character(models.Model):
     default=ESTADO[0][1],
     verbose_name='Estado'
   )
-  origin = models.CharField(max_length=30, verbose_name='Origen',blank=True)
+  origin = models.CharField(max_length=50, verbose_name='Origen',blank=True)
   occupation = models.CharField(
     max_length=20,
     choices=OCU,
