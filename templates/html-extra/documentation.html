@@ -1,9 +1,10 @@
 {% extends 'body.html' %}
 {% block title %}<title>Documentation</title>{% endblock title %}
+
 {% block content %}
 <main class="container-fluid">
   <div class="row m-2">
-    <div class="container mt-5 mb-5 lead">
+    <div class="container mt-5 mb-5">
     <h2 class="display-5">Introduction</h2>
     <p>This documentation will help you get familiar with the recurces of the One Piece API and show you now to make different queries, so that you can get the mostout of it</p>
       <h3 class="h3">REST</h3>
@@ -28,14 +29,71 @@
         <pre class="language-json">
           <code class="language-json">
           <span class="token punctuation">{</span>
-            <span class="token property">"character"</span><span class="token operator">:</span><span class="token string">"https://apionepiece.herokuapp.com/api/"</span><span class="token punctuation">,</span>
+            <span class="token property">"characters"</span><span class="token operator">:</span><span class="token string">"https://apionepiece.herokuapp.com/api/characters"</span><span class="token punctuation">,</span>
           <span class="token punctuation">}</span>
           </code>
         </pre>
       </div>
-      <h3 class="h3">Character</h3>
+      <p>There are currently one available resources:</p>
+      <ul>
+        <li>
+          <a href="#Characters" class="link">Characters</a>: used to get all the character's.
+        </li>
+      </ul>
+      <h3 class="h3 mt-5">Info and Pagination</h3>
+      <p>The API will automatically paginate the responses. You will receive up to 15 documents per page.</p>
+      <p>Each resources contains an <code>info</code> object with information about the response.</p>
+      <table class="table mb-5 table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Key</ht>
+            <th scope="col">Type</ht>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">count</td>
+            <td>int</td>
+            <td>The length of the response.</td>
+          </tr>
+          <tr>
+            <td scope="row">nex</td>
+            <td>string (url)</td>
+            <td>Link to next page (if it exits)</td>
+          </tr>
+          <tr>
+            <td scope="row">prev</td>
+            <td>string (url)</td>
+            <td>Link to prev page (if it exits)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><em>Sample request</em></p>
+      <div data-language="text">
+        <pre class="language-text">
+          <code class="language-text">https://apionepiece.herokuapp.com/api/characters/</code>
+        </pre>
+      </div>
+      {% load characters_extras %}
+      {% get_character_all as characters %}
+      <div data-language="json">
+        <pre class="language-json">
+          <code class="language-json">
+          <span class="token punctuation">{</span>
+            <span class="token property">"count"</span><span class="token operator">:</span><span class="token number">{{characters|length}}</span><span class="token punctuation">,</span>
+            <span class="token property">"next"</span><span class="token operator">:</span><span class="token string">"https://apionepiece.herokuapp.com/api/characters/?page=2"</span><span class="token punctuation">,</span>
+            <span class="token property">"previous"</span><span class="token operator">:</span><span class="token keywork">null</span><span class="token punctuation">,</span>
+            <span class="token property">"results"</span><span class="token operator">:</span><span class="token punctuation">[</span>
+              <span class="token comment">// ...</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+          </code>
+        </pre>
+      </div>
+      <h3 class="h3 mt-5">Character</h3>
       <p>There is a total of 15 for the moments, character's sorted by id.</p>
-      <h3 class="h3">Character Scheme</h3>
+      <h3 class="h3 mt-3">Character Scheme</h3>
       <div class="table-responsive-md">
         <table class="table mb-5 table-hover">
           <thead class="thead-dark">

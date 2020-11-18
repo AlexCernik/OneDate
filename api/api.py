@@ -1,14 +1,25 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from .serializers import CharacterSerializer
+from rest_framework import generics
 from rest_framework.response import Response
-from django.http import JsonResponse, Http404
-from rest_framework.decorators import api_view
+from django.core import serializers
+from rest_framework.renderers import JSONRenderer
+from django.http import JsonResponse, Http404,HttpResponse
+from rest_framework.decorators import api_view, renderer_classes
 
 from .models import Character
 
 serializer_class = CharacterSerializer
 
+#simple repuesta en object Json
+def get_destined_api(request):
+  api_url = {
+    "characters":"https://apionepiece.herokuapp.com/api/characters/"
+  }
+  return JsonResponse(api_url)
+
+# obtener id desde la db
 def get_object(pk):
   try:
     return Character.objects.get(pk=pk)
@@ -22,14 +33,11 @@ def get_characters_details(request,pk):
   serializer = serializer_class(character)
   return JsonResponse(serializer.data)
 
-@api_view(['GET'])
-def get_characters_lists(request,format=None):
-  try:
-    character = Character.objects.all()
-    serializer = serializer_class(character,many=True)
-    return Response(serializer.data)
-  except Character.DoesNotExist:
-    return Http404
+# peticiones a todos los personajes
+class Get_characters_all(generics.ListAPIView):
+  queryset = Character.objects.all()
+  serializer_class = CharacterSerializer
+  renderer_classes = [JSONRenderer]
 
 @api_view(['GET'])
 def get_characters_alive(request,format=None):
@@ -37,7 +45,8 @@ def get_characters_alive(request,format=None):
     character = Character.objects.all().filter(status__contains='Alive')
     if character:
       serializer = serializer_class(character,many=True)
-      return Response(serializer.data)
+      return JsonResponse(serializer.data, safe=False)
+    return JsonResponse({"Error":"DoesNotExist"})
   except Character.DoesNotExist:
     return Http404
 
@@ -47,32 +56,10 @@ def get_characters_dead(request,format=None):
     character = Character.objects.all().filter(status__contains='Dead')
     if character:
       serializer = serializer_class(character,many=True)
-      return Response(serializer.data)
+      return JsonResponse(serializer.data, safe=False)
+    return JsonResponse({"Error":"DoesNotExist"})
   except Character.DoesNotExist:
     return Http404
-
-# @api_view(['GET'])
-# def apiOverView(request):
-#   api_urls = {
-#     'name':'Monkey D Luffy',
-#     'age':19,
-#     'rank':'Supernova',
-#     'state':'Alive',
-#   }
-#   return Response(api_urls)
-
-# @api_view(['GET'])
-# def characterList(request):
-#   character = Character.objects.all()
-#   serializer = CharacterSerializer(character,many=True)
-#   return Response(serializer.data)
-#   # return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
-# @api_view(['GET'])
-# def characterDetail(request,pk):
-#   character = Character.objects.get(id=pk)
-#   serializer = CharacterSerializer(character,many=False)
-#   return Response(serializer.data)
 
 # class Character_APIView(APIView):
 #   """ API VIEW DE PRUEBA """

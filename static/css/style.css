@@ -168,7 +168,11 @@ code[class*="language-"]{
   color: #6dca8f;
 }
 
-.token.operator,.token.punctuation,.token.url,.language-css .token.string,.style .token.string,.token.variable {
+.keywork{
+  color: #55a1a3;
+}
+
+.token.operator,.token.punctuation,.token.url,.language-css .token.string,.style .token.string,.token.variable,.token.comment {
   color: rgb(171, 178, 191);
 }
 
