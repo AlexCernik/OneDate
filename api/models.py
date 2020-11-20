@@ -24,7 +24,7 @@ class Character(models.Model):
     ('Nobles','Nobles'),
     ('Reindeer', 'Reindeer'),
     ('Animal','Animal'),
-    ('Gyoji', 'Gyoji'),
+    ('Gyojin', 'Gyojin'),
     ('Giant', 'Giant'),
     ('Triton', 'Triton'),
     ('Mink', 'Mink'),
